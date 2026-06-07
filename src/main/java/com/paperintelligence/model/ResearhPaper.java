@@ -5,6 +5,6 @@ import java.util.List;
 
 public class ResearhPaper {
 
-    private String
+
     
 }
