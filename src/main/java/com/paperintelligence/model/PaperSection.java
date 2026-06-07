@@ -1,4 +1,4 @@
-package main.java.com.paperintelligence.model;
+package com.paperintelligence.model;
 
 public class PaperSection {
 

@@ -1,12 +1,8 @@
-# Project Name
+# Paper Engine
 
-A brief description of your project goes here.
+## Features (so far)
 
-## Features
-
--
--
--
+- Text parser started
 
 ## Installation
 
@@ -34,19 +30,3 @@ ProjectName/.....
 
 - Java
 ````
-
-## My Notes
-
-model/ Defines the core paper objects and data structures used throughout the application.
-
-parser/ Converts raw research paper text into structured Java objects.
-
-extractor/ Identifies and extracts meaningful information such as models, datasets, metrics, and keywords.
-
-embedding/ Transforms paper content into vector representations for semantic search and similarity analysis.
-
-export/ Exports processed paper data into formats such as JSON or CSV.
-
-dataset/ Builds machine-learning-ready datasets from extracted paper information.
-
-storage/ Manages long-term persistence of papers, extracted data, and embeddings using files or databases.

@@ -1,16 +1,8 @@
-# Compiled class file
 *.class
-
-# Log file
 *.log
 
-# BlueJ files
-*.ctxt
+target/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
 *.jar
 *.war
 *.nar
@@ -19,10 +11,7 @@
 *.tar.gz
 *.rar
 
-# JVM crash logs
 hs_err_pid*
 replay_pid*
 
-# Files
-README.md
-.vscode/
+.DS_Store
