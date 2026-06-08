@@ -1,24 +1,21 @@
-package com.paperintelligence.parser;
+package com.paperintelligence.parsers;
 
 import java.util.Set;
-
 import com.paperintelligence.model.PaperSection;
 import com.paperintelligence.model.ResearchPaper;
 
-// Section detection, the whole
-public class PaperParser {
-    // Sections that the parser knowns to detect
-
-    private static final Set<String> KNOWN_SECTIONS = Set.of("ABSTRACT",
-            "INTRODUCTION",
-            "METHODS",
-            "METHODOLOGY",
-            "RESULTS",
-            "FIGURES",
-            "DISCUSSION",
-            "CONCLUSION",
-            "REFERENCES");
-
+public class PlainTextParser implements PaperParser {
+     private static final Set<String> KNOWN_SECTIONS = Set.of(
+        "ABSTRACT",
+        "SUMMARY",
+        "INTRODUCTION",
+        "RESULTS",
+        "METHODS",
+        "DISCUSSION",
+        "DATA AVAILABILITY",
+        "REFERENCES");
+    
+    @Override
     public ResearchPaper parse(String text) {
         ResearchPaper paper = new ResearchPaper();
 
@@ -56,5 +53,5 @@ public class PaperParser {
         }
         return paper;
     }
-
+    
 }
