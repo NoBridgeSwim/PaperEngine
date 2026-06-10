@@ -1,10 +1,13 @@
-*.class
+
 *.log
 
-target/
 
+# Java - Mavin 
+target/
+*.class
 *.jar
 *.war
+
 *.nar
 *.ear
 *.zip
@@ -16,4 +19,14 @@ replay_pid*
 
 .DS_Store
 
-.vscode/.vscode/
+
+# IDE
+.vscode/
+
+# Environment vars
+.env
+.env.*
+
+# PDFs - local data and extras
+*.pdf
+paper.json

@@ -1,20 +1,18 @@
 package com.paperintelligence.parsers;
 
 import java.util.Set;
+
 import com.paperintelligence.model.PaperSection;
 import com.paperintelligence.model.ResearchPaper;
 
 public class PlainTextParser implements PaperParser {
-     private static final Set<String> KNOWN_SECTIONS = Set.of(
-        "ABSTRACT",
-        "SUMMARY",
-        "INTRODUCTION",
-        "RESULTS",
-        "METHODS",
-        "DISCUSSION",
-        "DATA AVAILABILITY",
-        "REFERENCES");
-    
+    private static final Set<String> KNOWN_SECTIONS = Set.of(
+            "SUMMARY",
+            "INTRODUCTION",
+            "METHODS",
+            "RESULTS",
+            "DISCUSSION");
+
     @Override
     public ResearchPaper parse(String text) {
         ResearchPaper paper = new ResearchPaper();
@@ -51,7 +49,9 @@ public class PlainTextParser implements PaperParser {
                     new PaperSection(currentSectionName, currentContent.toString().trim()));
 
         }
+        System.out.println("PlainTextParser scan complete:");
+        System.out.println(paper);
         return paper;
     }
-    
+
 }

@@ -1,8 +1,11 @@
 package com.paperintelligence.parser;
 
-import com.paperintelligence.model.ResearchPaper;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+
+import com.paperintelligence.model.ResearchPaper;
+import com.paperintelligence.parsers.PlainTextParser;
 
 /**
  * Testing:
@@ -15,8 +18,6 @@ public class PaperParserTest {
     @Test
     void parsesKnownSections() {
         String text = """
-                ABSTRACT
-                This is the abstract.
 
                 METHODS
                 This is the methods section.
@@ -25,7 +26,7 @@ public class PaperParserTest {
                 These are the results.
                 """;
 
-        PaperParser parser = new PaperParser();
+        PlainTextParser parser = new PlainTextParser();
         ResearchPaper paper = parser.parse(text);
 
         assertEquals(3, paper.getSections().size());
@@ -37,14 +38,11 @@ public class PaperParserTest {
     @Test
     void parsesSectionContent() {
         String text = """
-                ABSTRACT
-                This is the abstract text.
-
                 METHODS
                 This is the methods text.
                 """;
 
-        PaperParser parser = new PaperParser();
+        PlainTextParser parser = new PlainTextParser();
         ResearchPaper paper = parser.parse(text);
 
         assertEquals("This is the abstract text.", paper.getSections().get(0).getContent());
@@ -54,14 +52,11 @@ public class PaperParserTest {
     @Test
     void handlesLowercaseHeaders() {
         String text = """
-                abstract
-                This is the abstract.
-
                 methods
                 This is the methods section.
                 """;
 
-        PaperParser parser = new PaperParser();
+        PlainTextParser parser = new PlainTextParser();
         ResearchPaper paper = parser.parse(text);
 
         assertEquals(2, paper.getSections().size());
@@ -76,7 +71,7 @@ public class PaperParserTest {
                 It has no known section headers.
                 """;
 
-        PaperParser parser = new PaperParser();
+        PlainTextParser parser = new PlainTextParser();
         ResearchPaper paper = parser.parse(text);
 
         assertEquals(0, paper.getSections().size());
