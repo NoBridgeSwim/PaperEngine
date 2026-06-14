@@ -1,0 +1,16 @@
+<article>
+  <body>
+    <sec>
+      <title>Introduction</title>
+      <p>Some introduction text</p>
+    </sec>
+    <sec>
+      <title>Results</title>
+      <p>Results are found here</p>
+    </sec>
+    <sec>
+      <title>Discussion</title>
+      <p>Discussion is found here</p>
+    </sec>
+  </body>
+</article>

@@ -3,8 +3,8 @@ package com.paperintelligence.model;
 public class PaperSection {
 
     private String name;
-    private String content;
 
+    private String content;
 
     public PaperSection(String name, String content) {
 
@@ -12,7 +12,7 @@ public class PaperSection {
         this.content = content;
 
     }
-    
+
     public String getName() {
         return name;
     }
@@ -20,5 +20,5 @@ public class PaperSection {
     public String getContent() {
         return content;
     }
-    
+
 }

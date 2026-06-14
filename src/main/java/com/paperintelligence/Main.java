@@ -3,35 +3,28 @@ package com.paperintelligence;
 import java.io.IOException;
 
 import com.paperintelligence.model.ResearchPaper;
-import com.paperintelligence.parsers.PaperParser;
-import com.paperintelligence.parsers.PdfToStr;
-import com.paperintelligence.parsers.PlainTextParser;
-import com.paperintelligence.parsers.TextNormalizer;
 
 //stores parsing logic, beggining with PaperParser
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        String rawText = PdfToStr.extractPDFText();
+        if (args.length == 0 || args[0].isBlank()) {
+            throw new IllegalArgumentException("Missing XML File path");
+        }
 
-        // Temporary console logs
-        // System.out.println("===== RAW PDF TEXT START =====");
-        // System.out.println(rawText);
-        // System.out.println("===== RAW PDF TEXT END =====");
+        // Convert XML file to single text string
 
-        String cleanText = TextNormalizer.removeFootMetaData(rawText, "OPEN ACCESS", "Resource");
+        String xmlFilePath = args[0];
 
-        // Temporary console logs
-        System.out.println("===== CLEAN TEXT START =====");
-        System.out.println(cleanText);
-        System.out.println("===== CLEAN TEXT END =====");
-        PaperParser parser = new PlainTextParser();
-        ResearchPaper paper = parser.parse(cleanText);
+        PaperProcessingPipeline pipeline = new PaperProcessingPipeline();
+        ResearchPaper paper = pipeline.processXml(xmlFilePath);
 
         System.out.println("Sections found:");
         System.out.println(paper);
-        paper.getSections().forEach(section -> System.out.println(section.getName()));
-
+        paper.getSections().forEach(section -> {
+            System.out.println(section.getName());
+            System.out.println(section.getContent());
+            System.out.println("--------------------");
+        });
     }
-
 }

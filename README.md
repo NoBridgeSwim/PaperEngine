@@ -1,13 +1,14 @@
 # Paper Engine
 
-## Features (so far)
+## Features
 
-- Text parser started
+- Text parser
+- Initial string text clean
 
 ## Installation
 
 ```bash
-git clone your-repo-url
+git clone your-repo-urlpwd
 cd your-project-folder
 ```
 
